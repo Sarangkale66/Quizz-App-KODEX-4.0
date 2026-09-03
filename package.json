@@ -1,0 +1,35 @@
+{
+  "name": "build-your-own-mini-react",
+  "version": "1.0.0",
+  "description": "Kodex Mini React Project",
+  "homepage": "https://github.com/Sarangkale66/Quizz-App-KODEX-4.0#readme",
+  "bugs": {
+    "url": "https://github.com/Sarangkale66/Quizz-App-KODEX-4.0/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sarangkale66/Quizz-App-KODEX-4.0.git"
+  },
+  "license": "ISC",
+  "author": "sarang kale",
+  "type": "module",
+  "main": "./dist/main.js",
+  "scripts": {
+    "dev:ts": "esbuild src/main.ts --bundle --outfile=dist/main.js --format=esm --sourcemap --watch",
+    "dev:typecheck": "tsc --noEmit --watch --preserveWatchOutput",
+    "dev:css": "npx @tailwindcss/cli -i ./src/style/input.css -o ./dist/style/output.css --watch",
+    "dev:serve": "browser-sync start --server --single --files \"dist/**/*.js,dist/**/*.css,index.html\" --no-notify --port 3000",
+    "dev": "concurrently \"npm run dev:ts\" \"npm run dev:typecheck\" \"npm run dev:css\" \"npm run dev:serve\" --names \"ESB,TSC,CSS,BS \" --prefix-colors \"cyan,blue,green,yellow\"",
+    "build": "tsc --noEmit && esbuild src/main.ts --bundle --outfile=dist/main.js --format=esm --minify && npx @tailwindcss/cli -i ./src/style/input.css -o ./dist/style/output.css"
+  },
+  "dependencies": {
+    "@tailwindcss/cli": "^4.3.3",
+    "tailwindcss": "^4.3.3"
+  },
+  "devDependencies": {
+    "browser-sync": "^3.0.4",
+    "concurrently": "^10.0.5",
+    "esbuild": "^0.28.2",
+    "serve": "^14.2.6"
+  }
+}
