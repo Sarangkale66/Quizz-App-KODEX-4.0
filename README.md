@@ -2,15 +2,18 @@
 
 - folder Structure
 ```
-  README.md
-  ts.config.json
-  package.json
-  index.html
-  src/ ---> .ts
-   |----- main.ts
-   |----- component 
-            |--- Button.ts
-  dist/  
+project/
+├── README.md          # Project documentation
+├── package.json       # Dependencies and scripts
+├── tsconfig.json      # TypeScript configuration
+├── index.html         # HTML entry point
+│
+├── src/               # TypeScript source code
+│   ├── main.ts        # Application entry point
+│   └── components/    # Reusable components
+│       └── Button.ts   # Button component
+│
+└── dist/              # Compiled JavaScript output 
 ```
 
 # File Casing and Folder Casing
