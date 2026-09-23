@@ -22,7 +22,22 @@ export abstract class Component {
         this._element?.remove();
         this._element = null;
     }
+    // unmount mount
+    // replace
+    rerender(): void {
+        this.onUnMount();
 
+        const newElement = this._createElement();
+
+        if (!newElement) return;
+
+        this._element?.replaceWith(newElement);
+
+        this._element = newElement;
+
+        this.onMount();
+    }
+    
     // decleration of method
     onMount() {}
 
